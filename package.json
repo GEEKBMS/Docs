@@ -1,0 +1,20 @@
+{
+  "name": "geekbms-docs",
+  "private": true,
+  "description": "GEEKBMS public documentation site (VitePress) for docs.geekbms.com",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "npm run check && vitepress build docs",
+    "preview": "vitepress preview docs --host 127.0.0.1",
+    "check": "node scripts/check-products.mjs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.22",
+    "yaml": "^2.8.1"
+  }
+}

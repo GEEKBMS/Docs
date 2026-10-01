@@ -1,0 +1,69 @@
+# Public product model snapshot for docs.geekbms.com (phase 1).
+#
+# Feishu sync is manual in phase 1. Edit this file by hand, then add or update
+# docs/products/<id>/index.md. Do not call the Feishu API from this repository.
+#
+# Entries are sample placeholders aligned with the fictional SKUs on
+# https://www.geekbms.com/ . They are not released specifications.
+#
+# Fields:
+#   line:    bms | balancing | handheld
+#   id:      stable URL slug; public path is /products/<id>/
+#   name:    display name
+#   summary: one-line public summary
+#   status:  sample (phase 1) or published (later, when a real document ships)
+
+products:
+  - line: bms
+    id: bms-4s100a
+    name: BMS-4S-100A
+    summary: 磷酸铁锂启停用 4 串保护板，持续 100A
+    status: sample
+
+  - line: bms
+    id: bms-13s60a
+    name: BMS-13S-60A
+    summary: 三元电动自行车用 13 串保护板，持续 60A
+    status: sample
+
+  - line: bms
+    id: bms-16s60a
+    name: BMS-16S-60A
+    summary: 电动摩托、三轮车用 14–16 串保护板，持续 60A
+    status: sample
+
+  - line: bms
+    id: bms-16s100a
+    name: BMS-16S-100A
+    summary: 大电流 13–16 串保护板，持续 100A
+    status: sample
+
+  - line: bms
+    id: bms-20s60a
+    name: BMS-20S-60A
+    summary: 72V 三元电动摩托用 20 串保护板
+    status: sample
+
+  - line: balancing
+    id: abm-2a-adj-16s
+    name: ABM-2A-ADJ-16S
+    summary: 邻接主动均衡模块，2A，适配至 16 串
+    status: sample
+
+  - line: balancing
+    id: abm-5a-adj-20s
+    name: ABM-5A-ADJ-20S
+    summary: 邻接主动均衡模块，5A，适配至 20 串
+    status: sample
+
+  - line: handheld
+    id: hhb-2a
+    name: HHB-2A
+    summary: 手持均衡仪，2A，2–24 串通用
+    status: sample
+
+  - line: handheld
+    id: hhb-5a
+    name: HHB-5A
+    summary: 手持均衡仪，5A，适合大容量电芯快速均衡
+    status: sample
