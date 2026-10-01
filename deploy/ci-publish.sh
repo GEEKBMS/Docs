@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Pack is uploaded by GitHub Actions. This script copies it to the Aliyun host
-# and runs deploy/remote-publish.sh. Requires ALIYUN_HOST, ALIYUN_USER, ALIYUN_SSH_KEY.
+# Copy the packed site to the publish host and run remote-publish.sh.
 set -euo pipefail
 
 : "${ALIYUN_HOST:?Set the ALIYUN_HOST secret}"

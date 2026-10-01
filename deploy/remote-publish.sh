@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
-# Atomically publish a VitePress tarball to /var/www/geekbms-docs and reload nginx.
-# Run as root: remote-publish.sh <publish_dir> <git_sha>
-#
-# If /etc/letsencrypt/live/docs.geekbms.com/ is missing, issue that certificate
-# once with certbot --webroot, then enable the HTTPS server block. Existing
-# certificates are left in place. This script never edits nginx files other
-# than /etc/nginx/conf.d/docs.geekbms.com.conf.
+# Publish the packed site and reload the docs vhost.
+# Usage: remote-publish.sh <publish_dir> <git_sha>
 set -euo pipefail
 
 if [[ "$(id -u)" -ne 0 ]]; then
