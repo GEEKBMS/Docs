@@ -68,7 +68,23 @@ npm run preview  # 预览 docs/.vitepress/dist
 - 还没有证书时：[`deploy/nginx/docs.geekbms.com.http.conf`](deploy/nginx/docs.geekbms.com.http.conf)
 - 证书已经在服务器上时：[`deploy/nginx/docs.geekbms.com.https.conf`](deploy/nginx/docs.geekbms.com.https.conf)
 
-发布脚本会看 `/etc/letsencrypt/live/docs.geekbms.com/` 里有没有 `fullchain.pem` 和 `privkey.pem`，有就装 HTTPS 配置，没有就装 HTTP，方便第一次用 certbot。脚本不申请、也不删除证书。
+发布脚本只改 `/etc/nginx/conf.d/docs.geekbms.com.conf`，不动 www.geekbms.com 的配置。证书放在 `/etc/letsencrypt/`，脚本不删除证书。
+
+- 已有 `fullchain.pem` 和 `privkey.pem`：安装 HTTPS 配置，跳过 certbot。
+- 还没有证书：先用 HTTP 把 `/var/www/geekbms-docs/current` 发布出来，再申请一次（主机上没有 certbot 就用 apt 安装）：
+
+  ```bash
+  certbot certonly --non-interactive --agree-tos --email amzhy8@163.com \
+    --webroot -w /var/www/geekbms-docs/current \
+    --keep-until-expiring \
+    -d docs.geekbms.com
+  ```
+
+  这是 webroot 模式，不会重写其他站点。成功后同一轮发布写入 HTTPS 配置并 reload。申请失败时站点留在 HTTP，已经发布的文件不会回滚。
+
+**第一次切到 HTTPS：** 把包含这段逻辑的提交合并进 `main`（Deploy 会跟着跑），或合并之后对 `main` 手动跑 `workflow_dispatch`。同一次发布完成申请和切换，不用再登录服务器跑 certbot。
+
+续期仍由服务器上的 certbot timer 负责。申请时登记了 `--deploy-hook`，只在这份证书续期成功后 reload nginx。
 
 一次性准备：
 
@@ -77,17 +93,8 @@ npm run preview  # 预览 docs/.vitepress/dist
    - `ALIYUN_HOST`：服务器 IP 或主机名
    - `ALIYUN_USER`：SSH 用户
    - `ALIYUN_SSH_KEY`：私钥全文（含 BEGIN/END 行）
-3. SSH 用户需要能无密码 `sudo -n` 执行发布脚本（写 `/var/www/geekbms-docs`、写 `/etc/nginx/conf.d/docs.geekbms.com.conf`、`nginx -t` 和 reload）。用户本身是 root 也可以。主机上的 nginx 需要加载 `/etc/nginx/conf.d/*.conf`（发行版默认如此）。
-4. 推到 `main` 或手动跑一次 Deploy。第一次会以 HTTP 提供站点。
-5. **在服务器上申请一次证书**（DNS 已经指向这台机器，并且上一步的 HTTP 站点可以访问之后）：
-
-   ```bash
-   sudo certbot certonly --webroot \
-     -w /var/www/geekbms-docs/current \
-     -d docs.geekbms.com
-   ```
-
-6. 再手动跑一次 Deploy。工作流发现证书后会切换到 HTTPS，并保留 `/.well-known/acme-challenge/` 供以后续期。续期仍用 certbot 自己的 timer / cron，不要在本仓库里存证书。
+3. SSH 用户需要能无密码 `sudo -n` 执行发布脚本（写 `/var/www/geekbms-docs`、写 `/etc/nginx/conf.d/docs.geekbms.com.conf`、`apt-get install certbot`、`nginx -t` 和 reload）。用户本身是 root 也可以。主机上的 nginx 需要加载 `/etc/nginx/conf.d/*.conf`（发行版默认如此）。
+4. 合并到 `main`，或合并后手动跑一次 Deploy。HTTP 已经在线时，这一轮会补上证书并切到 HTTPS。
 
 ## Gitee
 

@@ -63,6 +63,8 @@ jobs:
           path: .deploy-artifact
 
       - name: Publish over SSH
+        # After the files are live, remote-publish.sh issues the
+        # docs.geekbms.com certificate once if it is missing, then reloads HTTPS.
         env:
           ALIYUN_HOST: ${{ secrets.ALIYUN_HOST }}
           ALIYUN_USER: ${{ secrets.ALIYUN_USER }}
