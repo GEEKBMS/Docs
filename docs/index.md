@@ -11,6 +11,7 @@ next: false
 
 - [按型号](/products/) — BMS 保护板、主动均衡模块、手持均衡仪
 - [PACK 导航](/pack-design-hub/) — 开源电池 PACK 设计的简介和仓库入口（只做导航）
+- [电芯模型](/pack-design-hub/#cell-models) — 18650 / 21700 / 26650 / 4680 的 STEP 文件，在 [cell-models](https://github.com/GEEKBMS/cell-models) 下载（克隆需要 `git lfs`）
 - [开始阅读](/getting-started/) — 文档怎么读、资料放在哪里
 
 公开站点：<https://docs.geekbms.com/>
