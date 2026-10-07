@@ -56,6 +56,7 @@ export default defineConfig({
             })),
           },
           { text: 'PACK 导航', link: '/pack-design-hub/' },
+          { text: '电芯模型', link: '/pack-design-hub/#cell-models' },
         ],
       },
     ],
