@@ -1,6 +1,6 @@
 ---
 title: PACK 导航
-description: 电池 PACK 开源设计中心的简介与导航，以及电芯 STEP 模型的下载入口。具体 PACK 资料在各自仓库。
+description: 电池 PACK 开源设计中心的简介与导航，以及电芯 STEP 与 GLB 模型的下载入口。具体 PACK 资料在各自仓库。
 ---
 
 # 电池 PACK 开源设计中心
@@ -21,13 +21,15 @@ GitHub 登记源：[Battery-PACK-Design-Hubs](https://github.com/GEEKBMS/Battery
 
 ## 电芯模型 {#cell-models}
 
-常用圆柱电芯的 STEP 三维模型在独立仓库，不放在本文档站。
+常用圆柱电芯的三维模型在独立仓库，不放在本文档站。
 
 GitHub：[cell-models](https://github.com/GEEKBMS/cell-models)
 
-当前包含 **18650 / 21700 / 26650 / 4680** 四种规格的 STEP 文件。
+当前包含 **18650 / 21700 / 26650 / 4680 / 32700 / 32140 / 40135** 七种规格。每种规格提供干净的 **STEP**（不含品牌文字或标签几何，便于装配和间隙检查）和带贴图的 **GLB**（用于可视化和渲染），以及预览 PNG。
 
-克隆或下载需要 [Git LFS](https://git-lfs.com/)（命令 `git lfs`）。模型文件由 Git LFS 管理；未安装时，克隆得到的是指针文件，无法直接用 CAD 打开。
+这些是按公称外形做的简化外形参考，不是任何厂家 CAD、商标或公差图的副本。实际电芯因厂家和型号而异，定稿前请核对所用电芯的规格书。不用于制造、认证或安全关键用途。
+
+克隆或下载需要 [Git LFS](https://git-lfs.com/)（命令 `git lfs`）。模型文件由 Git LFS 管理；未安装时，克隆得到的是指针文件，无法直接打开。
 
 ```bash
 git lfs install
