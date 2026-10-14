@@ -33,9 +33,11 @@
 [按型号](https://docs.geekbms.com/products/)（源文件 `docs/products/`）
 
 - 闭源产品脱敏后可公开的规格书、应用说明等
-- 型号清单是 `data/products.yaml`（`line`: `bms` | `balancing` | `handheld`，以及 `id`、`name`、`summary`）
+- 型号清单是 `data/products.yaml`（`line`: `bms` | `balancing` | `handheld`，以及 `id`、`name`、`summary`、`status`）
+- `status` 为 `sample`（虚构示例）、`draft`（真实型号的骨架页，参数仍是 TBD）或 `published`（已发布资料）
 - 每个型号一页：`docs/products/<id>/index.md`，对应 `/products/<id>/`
-- 阶段 1 的条目是示例，与官网上的虚构型号一致，不是已发布规格书
+- 阶段 1 的 `sample` 条目与官网上的虚构型号一致，不是已发布规格书
+- [E04S05D](https://docs.geekbms.com/products/e04s05d/) 与 [E06S05D](https://docs.geekbms.com/products/e06s05d/) 是 `draft` 骨架，用来占住网址。正式规格以后从 Forgejo `GEEKBMS/E04S05D` 与 `GEEKBMS/E06S05D` 补入。不增设已停用的 A 系列页面
 
 **飞书同步在阶段 1 是人工的。** 改 `data/products.yaml`，补上对应的 Markdown。本仓库不调用飞书 API。
 

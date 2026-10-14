@@ -13,7 +13,7 @@ export const PRODUCT_LINES = [
 
 const LINE_IDS = new Set(PRODUCT_LINES.map((item) => item.line))
 const ID_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
-const STATUSES = new Set(['sample', 'published'])
+const STATUSES = new Set(['sample', 'draft', 'published'])
 
 export function lineLabel(line) {
   return PRODUCT_LINES.find((item) => item.line === line)?.label ?? line
@@ -50,7 +50,7 @@ export function loadProducts({ checkPages = true } = {}) {
       throw new Error(`${product.id}: summary is required`)
     }
     if (product.status != null && !STATUSES.has(product.status)) {
-      throw new Error(`${product.id}: status must be sample or published`)
+      throw new Error(`${product.id}: status must be sample, draft, or published`)
     }
     if (checkPages) {
       const page = resolve(root, 'docs/products', product.id, 'index.md')
