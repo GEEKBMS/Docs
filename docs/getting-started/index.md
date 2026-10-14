@@ -16,6 +16,6 @@ description: GEEKBMS 技术文档中心的阅读入口。
 
 ## 关于当前内容
 
-阶段 1 的型号页是示例，用来占住公开路径。说明书和接线图发布后，在同一路径更新，不改网址。型号清单由仓库里的 `data/products.yaml` 人工维护，本阶段不接飞书 API。
+阶段 1 里标成示例的型号页用来占住公开路径。另有草稿页（例如 [E04S05D](/products/e04s05d/)、[E06S05D](/products/e06s05d/)）同样只占地址，规格仍是 TBD。说明书和接线图发布后，在同一路径更新，不改网址。型号清单由仓库里的 `data/products.yaml` 人工维护，本阶段不接飞书 API。
 
 文档默认 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/legalcode)。某一页若另有声明，以该页为准。

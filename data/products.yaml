@@ -3,15 +3,19 @@
 # Feishu sync is manual in phase 1. Edit this file by hand, then add or update
 # docs/products/<id>/index.md. Do not call the Feishu API from this repository.
 #
-# Entries are sample placeholders aligned with the fictional SKUs on
-# https://www.geekbms.com/ . They are not released specifications.
+# status:
+#   sample     fictional phase-1 placeholder (not a released specification)
+#   draft      real model, skeleton page only; electrical specs stay TBD
+#   published  released document
+#
+# Do not add obsolete A-series slugs (e04s05a / e06s05a).
 #
 # Fields:
 #   line:    bms | balancing | handheld
 #   id:      stable URL slug; public path is /products/<id>/
 #   name:    display name
 #   summary: one-line public summary
-#   status:  sample (phase 1) or published (later, when a real document ships)
+#   status:  sample | draft | published
 
 products:
   - line: bms
@@ -67,3 +71,17 @@ products:
     name: HHB-5A
     summary: 手持均衡仪，5A，适合大容量电芯快速均衡
     status: sample
+
+  # Current orderable handheld models. Pages are skeletons; real specs come
+  # later from Forgejo GEEKBMS/E04S05D and GEEKBMS/E06S05D.
+  - line: handheld
+    id: e04s05d
+    name: E04S05D
+    summary: 手持均衡仪现行订货型号的草稿页，电气参数 TBD
+    status: draft
+
+  - line: handheld
+    id: e06s05d
+    name: E06S05D
+    summary: 手持均衡仪现行订货型号的草稿页，电气参数 TBD
+    status: draft

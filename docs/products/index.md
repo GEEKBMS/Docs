@@ -7,15 +7,17 @@ next: false
 
 # 产品技术文档
 
-闭源产品在脱敏后，可以在这里放规格书和应用说明。每个型号使用稳定路径 `/products/<id>/`，例如 [BMS-16S-60A](/products/bms-16s60a/)。
+闭源产品在脱敏后，可以在这里放规格书和应用说明。每个型号使用稳定路径 `/products/<id>/`，例如 [BMS-16S-60A](/products/bms-16s60a/) 与 [E04S05D](/products/e04s05d/)。
 
-阶段 1 的条目都是 **示例**，与官网上的虚构型号一致，不是已发布规格书。购买渠道见 [官网联系页](https://www.geekbms.com/contact/)。
+标「示例」的条目与官网上的虚构型号一致，不是已发布规格书。标「草稿」的条目用来占住稳定地址，正文仍是 TBD，规格以后从型号仓库补齐。购买渠道见 [官网联系页](https://www.geekbms.com/contact/)。
 
 <script setup>
 import { data } from './products.data.js'
 
 function statusLabel(status) {
-  return status === 'published' ? '' : '示例'
+  if (status === 'published') return ''
+  if (status === 'draft') return '草稿'
+  return '示例'
 }
 </script>
 
@@ -29,6 +31,10 @@ function statusLabel(status) {
     </li>
   </ul>
 </section>
+
+## 线级共用
+
+[手持均衡仪通则](/products/handheld-balancer/) 给 E04S05D 与 E06S05D 共用，状态为草稿，不是订货型号。现行手持均衡仪订货型号是 **E04S05D** 与 **E06S05D**（A 系列已停用，不设文档页）。
 
 ## 维护（阶段 1）
 
