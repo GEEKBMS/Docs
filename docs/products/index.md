@@ -9,7 +9,7 @@ next: false
 
 闭源产品在脱敏后，可以在这里放规格书和应用说明。每个型号使用稳定路径 `/products/<id>/`，例如 [BMS-16S-60A](/products/bms-16s60a/) 与 [E04S05D](/products/e04s05d/)。
 
-标「示例」的条目与官网上的虚构型号一致，不是已发布规格书。标「草稿」的条目用来占住稳定地址，正文仍是 TBD，规格以后从型号仓库补齐。购买渠道见 [官网联系页](https://www.geekbms.com/contact/)。
+标「示例」的条目与官网上的虚构型号一致，不是已发布规格书。标「草稿」的条目用来占住稳定地址。E04S05D、E06S05D 的串数与均衡电流已按本周官网关键参数写入型号页（4S / 5 A 与 6S / 5 A），其余规格以后从型号仓库补齐。购买渠道见 [官网联系页](https://www.geekbms.com/contact/)。
 
 <script setup>
 import { data } from './products.data.js'
