@@ -72,16 +72,17 @@ products:
     summary: 手持均衡仪，5A，适合大容量电芯快速均衡
     status: sample
 
-  # Current orderable handheld models. Pages are skeletons; real specs come
-  # later from Forgejo GEEKBMS/E04S05D and GEEKBMS/E06S05D.
+  # Current orderable handheld models. 串数 / 均衡电流 follow this week's
+  # live-site 关键参数; remaining specs come later from Forgejo
+  # GEEKBMS/E04S05D and GEEKBMS/E06S05D. Pages stay draft until M-chapter specs exist.
   - line: handheld
     id: e04s05d
     name: E04S05D
-    summary: 手持均衡仪现行订货型号的草稿页，电气参数 TBD
+    summary: 手持均衡仪，4S、均衡电流 5 A（本周工作口径；其余规格仍为草稿）
     status: draft
 
   - line: handheld
     id: e06s05d
     name: E06S05D
-    summary: 手持均衡仪现行订货型号的草稿页，电气参数 TBD
+    summary: 手持均衡仪，6S、均衡电流 5 A（本周工作口径；其余规格仍为草稿）
     status: draft
